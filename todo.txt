@@ -1,0 +1,6 @@
+- utworzyć obraz wildfly
+- utworzyć ejb scheduler
+- utworzyć ejb serwis i klienta który się z nim będzie łączył.
+- utworzyć testy jednostkowe do utworzonych ejb
+- utworzyć testy wydajnościowej przy pomocy JMeter.
+- utworzyć obraz bazy h2.
