@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  wildfly_sandbox:
+    image: sandbox/wildfly:1.0-SNAPSHOT
+    container_name: wildfly_sandbox
+    ports:
+      - 8443:8443 # <port hosta>:<port kontenera>
+      - 8787:8787
+      - 8080:8080/tcp
+      - 9990:9990/tcp
