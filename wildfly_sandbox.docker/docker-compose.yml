@@ -2,18 +2,9 @@ version: "3.9"
 services:
   wildfly_sandbox:
     image: sandbox/wildfly:1.0-SNAPSHOT
-    #image: com-docker.psi.de/de/psi/pjf/wildfly:21.0.2-4-PSI # Z tym obrazem mam dostęp do HAL Management Console. Dlaczego?
     container_name: wildfly_sandbox
     ports:
       - 8443:8443 # <port hosta>:<port kontenera>
       - 8787:8787
       - 8080:8080/tcp
       - 9990:9990/tcp
-    environment:
-      SERVER_CONFIG_FILE: standalone-full.xml
-      WILDFLY_RUN_PARAMS: -b=0.0.0.0 -bmanagement=0.0.0.0 --server-config=standalone-full.xml --debug 0.0.0.0:8787
-      JAVA_OPTS: -Xms1G -Xmx2G
-      WILDFLY_PASSWORD: adminadmin
-      MANAGEMENT_USER: admin
-      MANAGEMENT_PASSWORD: admin
-      ADDITIONAL_JAVA_OPTS:  -Xmx4096M
