@@ -4,3 +4,4 @@
 - utworzyć testy jednostkowe do utworzonych ejb
 - utworzyć testy wydajnościowej przy pomocy JMeter.
 - utworzyć obraz bazy h2.
+- Liquibase.
