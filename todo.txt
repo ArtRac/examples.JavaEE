@@ -1,7 +1,7 @@
-- utworzyć obraz wildfly
++ utworzyć obraz wildfly
 - utworzyć ejb scheduler [https://github.com/augustocolombelli/javaee-ejb-schedule/blob/master/ejbModule/br/com/tasks/ScheduledTask.java]
 - utworzyć ejb serwis i klienta który się z nim będzie łączył.
 - utworzyć testy jednostkowe do utworzonych ejb
 - utworzyć testy wydajnościowej przy pomocy JMeter.
-- utworzyć obraz bazy h2.
+- utworzyć obraz bazy h2. (Może lepiej Postgres, jest popularniejsza ko)
 - Liquibase.
