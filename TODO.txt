@@ -1,6 +1,7 @@
 + utworzyć obraz wildfly
 + utworzyć ejb scheduler [https://github.com/augustocolombelli/javaee-ejb-schedule/blob/master/ejbModule/br/com/tasks/ScheduledTask.java]
 - utworzyć ejb serwis i klienta który będzie się z nim łączył.
+- połączenie klient serwer poprzez REST.
 - Przenieść klienta do osobnego obrazu dockerowego.
 - utworzyć testy jednostkowe do utworzonych ejb
 - utworzyć testy wydajnościowej przy pomocy JMeter.
