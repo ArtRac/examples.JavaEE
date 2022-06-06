@@ -8,15 +8,25 @@
     <artifactId>sandbox.JavaEE</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>sandbox.JavaEE.server</module>
-        <module>sandbox.JavaEE.client</module>
-        <module>sandbox.JavaEE.docker</module>
-    </modules>
+    <name>Sandbox JavaEE</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://mit-license.org/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>sandbox.JavaEE.server</module>
+        <module>sandbox.JavaEE.client</module>
+        <module>sandbox.JavaEE.docker</module>
+    </modules>
 
 </project>
