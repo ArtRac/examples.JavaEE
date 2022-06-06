@@ -1,10 +1,12 @@
-import javax.ejb.EJB;
+package ejb;
+
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 @Stateless
-@Remote(Info.class)
-public class InfoBean implements Info  {
+@Remote( IInfo.class)
+public class Info implements IInfo
+{
 
 	@Override
 	public String printInfo() {
