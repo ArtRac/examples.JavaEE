@@ -8,4 +8,4 @@ RUN /opt/jboss/wildfly/bin/add-user.sh -u 'admin' -p 'admin'
 
 # Umożliwienie dostępu do konsoli.
 # http://www.mastertheboss.com/jbossas/jboss-configuration/how-to-bind-wildfly-to-an-ip-address/
-CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+# CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0

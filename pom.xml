@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ArtRac</groupId>
-    <artifactId>sandbox.JavaEE</artifactId>
+    <artifactId>examples.JavaEE</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Sandbox JavaEE</name>
+    <name>Examples JavaEE</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -24,9 +24,9 @@
     </licenses>
 
     <modules>
-        <module>sandbox.JavaEE.server</module>
-        <module>sandbox.JavaEE.client</module>
-        <module>sandbox.JavaEE.docker</module>
+        <module>examples.JavaEE.server</module>
+        <module>examples.JavaEE.client</module>
+        <module>examples.JavaEE.docker</module>
     </modules>
 
 </project>
