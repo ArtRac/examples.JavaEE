@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
-import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,43 +8,30 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import ejb.IInfo;
+
 // TODO: Wciąż nie działa.
 public class RemoteEJBClient {
 	private final static Logger logger = Logger.getLogger(RemoteEJBClient.class .getName()); 
 	private final static Hashtable jndiProperties = new Hashtable();
 
-    static InputStreamReader istream;
-    static BufferedReader bufRead;
-    static { //Co to za konstrukt?
-        istream = new InputStreamReader(System.in) ;
-        bufRead = new BufferedReader(istream) ;
-    }
-	
 	public static void main(String[] args) throws Exception {
 		Logger.getLogger("org.jboss").setLevel(Level.SEVERE);
 		Logger.getLogger("org.xnio").setLevel(Level.SEVERE);
 		testRemoteEJB();
 	}
 
-	private static void testRemoteEJB() throws NamingException {	
-
-		jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY,"org.jboss.naming.remote.client.InitialContextFactory");
-//        jndiProperties.put("java.naming.provider.url","remote://localhost:4447");
-//        //jndiProperties.put("java.naming.factory.url.pkgs","org.jboss.naming:org.jnp.interfaces");
-//        jndiProperties.put("jboss.naming.client.ejb.context", true);
-
-        final Info info = lookupInfoEJB();
+	private static void testRemoteEJB() throws NamingException {
+        jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        jndiProperties.put(Context.PROVIDER_URL,"remote+http://localhost:8080");
+        final IInfo info = lookupInfoEJB();
 
 		dumpWelcomeMessage();
 
-        logger.info(info.printInfo().toString());
+        logger.info(info.printInfo());
 	}
 
-	private static Info lookupInfoEJB() throws NamingException {
-		
-		final Context context = new InitialContext(jndiProperties);
-
+	private static IInfo lookupInfoEJB() throws NamingException {
         /*
         Nazwa JDNI używana do wywołania bezstanowego ziarna sesyjnego.
         ejb:<app-name>/<module-name>/<distinct-name>/<bean-name>!<fully-qualified-classname-of-the-remote-interface>
@@ -66,7 +52,10 @@ public class RemoteEJBClient {
         więc pełny adres ma wówczas postać:
         ejb:<app-name>/<module-name>/<distinct-name>/<bean-name>!<fully-qualified-classname-of-the-remote-interface>?stateful
         */
-		return (Info) context.lookup("ejb:/sandbox.JavaEE.server/InfoBean!Info");
+        final Context context = new InitialContext(jndiProperties);
+		return (IInfo) context.lookup("ejb:/examples.JavaEE.server-1.0-SNAPSHOT/Info!ejb.IInfo");
+
+        //ejb:/examples.JavaEE.server-1.0-SNAPSHOT/Info!ejb.IInfo
 
 	}
 

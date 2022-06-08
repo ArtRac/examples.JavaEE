@@ -2,6 +2,7 @@ package ejb;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -9,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class InfoTest
 {
     @Test
+    //@Disabled("Testy są niegotowe")
     void itsTestExample()
     {
         assertEquals( "InfoBean.printInfo()", new Info().printInfo() );

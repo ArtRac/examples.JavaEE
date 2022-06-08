@@ -17,95 +17,55 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
+        <wildfly.version>26.1.1.Final</wildfly.version>
+
         <version.org.jboss.xnio>3.8.7.Final</version.org.jboss.xnio>
         <version.org.jboss.threads>3.4.2.Final</version.org.jboss.threads>
         <version.org.wildfly.security.elytron>1.17.1.Final</version.org.wildfly.security.elytron>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-ejb-client-bom</artifactId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>${wildfly.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
-            <groupId>jboss</groupId>
-            <artifactId>jboss-client</artifactId>
-            <version>4.0.2</version>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-ejb-client-bom</artifactId>
+            <scope>import</scope>
+            <type>pom</type>
+            <version>${wildfly.version}</version>
         </dependency>
-
-        <!-- Import API Common Annotations (JSR-250) zapewnianego domyślnie przez JBoss AS 7 -->
         <dependency>
-            <groupId>org.jboss.spec.javax.annotation</groupId>
-            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
-            <scope>provided</scope>
+            <groupId>ArtRac</groupId>
+            <artifactId>examples.JavaEE.server</artifactId>
+            <type>ejb-client</type>
+            <version>${project.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.wildfly.common</groupId>-->
-<!--            <artifactId>wildfly-common</artifactId>-->
-<!--            <version>1.6.0.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.wildfly.client</groupId>-->
-<!--            <artifactId>wildfly-client-config</artifactId>-->
-<!--            <version>1.0.1.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.logging</groupId>-->
-<!--            <artifactId>jboss-logging</artifactId>-->
-<!--            <version>3.5.0.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.logging</groupId>-->
-<!--            <artifactId>jboss-logging-annotations</artifactId>-->
-<!--            <version>2.2.1.Final</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.logging</groupId>-->
-<!--            <artifactId>jboss-logging-processor</artifactId>-->
-<!--            <version>2.2.1.Final</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.marshalling</groupId>-->
-<!--            <artifactId>jboss-marshalling</artifactId>-->
-<!--            <version>2.0.0.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.marshalling</groupId>-->
-<!--            <artifactId>jboss-marshalling-river</artifactId>-->
-<!--            <version>2.0.0.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.remoting</groupId>-->
-<!--            <artifactId>jboss-remoting</artifactId>-->
-<!--            <version>5.0.24.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.xnio</groupId>-->
-<!--            <artifactId>xnio-api</artifactId>-->
-<!--            <version>${version.org.jboss.xnio}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.xnio</groupId>-->
-<!--            <artifactId>xnio-nio</artifactId>-->
-<!--            <version>${version.org.jboss.xnio}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.threads</groupId>-->
-<!--            <artifactId>jboss-threads</artifactId>-->
-<!--            <version>${version.org.jboss.threads}</version>-->
-<!--        </dependency>-->
-
+        <dependency>
+            <groupId>ArtRac</groupId>
+            <artifactId>examples.JavaEE.server</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss</groupId>
+            <artifactId>jboss-ejb-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.kohsuke.metainf-services</groupId>-->
-<!--            <artifactId>metainf-services</artifactId>-->
-<!--            <version>1.7</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
 
     </dependencies>
 
@@ -115,6 +75,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
                 <configuration>
                     <archive>
                         <manifest>

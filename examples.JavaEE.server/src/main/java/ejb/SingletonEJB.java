@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Remote;
+import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 // @Stateless   // Ziarno bezstanowe.
