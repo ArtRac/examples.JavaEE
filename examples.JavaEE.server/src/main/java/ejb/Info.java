@@ -1,5 +1,7 @@
 package ejb;
 
+import java.util.logging.Logger;
+
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
@@ -7,9 +9,10 @@ import javax.ejb.Stateless;
 @Remote( IInfo.class)
 public class Info implements IInfo
 {
-
-	@Override
+    private final static Logger logger = Logger.getLogger(Info.class .getName());
+    @Override
 	public String printInfo() {
+        logger.info( "InfoBean.printInfo()" );
         return "InfoBean.printInfo()";
 	}
 }
