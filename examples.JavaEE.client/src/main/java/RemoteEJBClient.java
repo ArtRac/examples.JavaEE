@@ -6,7 +6,6 @@ import javax.naming.InitialContext;
 
 import ejb.IInfo;
 
-// TODO: Wciąż nie działa.
 public class RemoteEJBClient {
 	private final static Logger logger = Logger.getLogger(RemoteEJBClient.class .getName()); 
 	private final static Hashtable jndiProperties = new Hashtable();
